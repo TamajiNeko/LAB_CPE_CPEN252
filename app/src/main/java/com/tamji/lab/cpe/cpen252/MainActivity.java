@@ -23,14 +23,16 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-//        int numMsg;
-//
-//        numMsg = 10;
-//        Log.i("numMsg",""+numMsg);
-//
-//        numMsg++;
-//        numMsg = numMsg + 1;
-//        Log.i("numMsg", ""+numMsg);
+    //Expressing yourself Demo app (line 27-43)
+
+        int numMsg;
+
+        numMsg = 10;
+        Log.i("numMsg",""+numMsg);
+
+        numMsg++;
+        numMsg = numMsg + 1;
+        Log.i("numMsg", ""+numMsg);
 
         boolean friend = true;
         Log.i("friend", ""+friend);
@@ -39,5 +41,36 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Message form "+contract, Toast.LENGTH_SHORT).show();
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+
+        //The Switch Demo app (line 47-58)
+
+        String command = "eat carrot";
+        switch (command) {
+            case "eat apple":
+                Log.i("message","you have been eat Apple");
+                break;
+            case "eat carrot":
+                Log.i("message", "You have been eat Carrot");
+                break;
+            default:
+                Log.i("message","You dont need any food?");
+                break;
+        }
+
+        //Loops Demo app (line 62-65)
+
+        int x = 5;
+        while (x > 0){
+            Toast.makeText(this, "X Value : " + x, Toast.LENGTH_SHORT).show();
+            x--;
+        }
+
+        //Using methods Demo app (line 70-75)
+
+        float circleArea = getCircleArea(5);
+        Log.i("result","Result : "+circleArea);
+    }
+    Float getCircleArea(float radius){
+        return (float) (radius*3.14);
     }
 }
