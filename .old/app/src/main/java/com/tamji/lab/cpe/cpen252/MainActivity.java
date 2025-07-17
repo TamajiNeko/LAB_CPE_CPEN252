@@ -73,4 +73,25 @@ public class MainActivity extends AppCompatActivity {
     Float getCircleArea(float radius){
         return (float) (radius*3.14);
     }
+
+    public static void main(String[] args) {
+        Animal animalA = new Animal();
+        Animal animalB = new Animal();
+
+        Book book1 = new Book();
+        Book book2 = new Book();
+
+        animalA.numberOfLeg = 4;
+        animalA.hair = false;
+        animalA.tail = false;
+        animalA.hasShell = false;
+/*        animalA.eat("Carrot");*/
+
+        book1.title = "My Dress-Up Darling Vol.1";
+        book1.author = "Shinichi Fukuda";
+        book1.genre = "Romantic comedy";
+        book1.numberOfPages = 32;
+        book1.open();
+        book1.read(1);
+    }
 }
