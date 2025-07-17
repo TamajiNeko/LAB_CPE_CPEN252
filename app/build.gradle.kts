@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "com.tamji.lab.cpe.neko_note"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.tamji.lab.cpe.neko_note"

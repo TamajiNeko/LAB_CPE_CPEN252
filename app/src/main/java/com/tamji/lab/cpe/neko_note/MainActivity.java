@@ -21,4 +21,35 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
+
+    public static void main(String[] args) {
+        Note noteA = new Note();
+        Note noteB = new Note();
+
+        User userA = new User();
+        User userB = new User();
+
+        noteA.title = "My favorite thing";
+        noteA.author = "NEKO";
+        noteA.context = "Animal : Butterfly\nColor : Purple\nFood : Cupcake";
+        noteA.createDate = "7/17/2025 4:12PM\n";
+
+        noteA.getSummary();
+
+        noteB.title = "My lover";
+        noteB.author = "Marina";
+        noteB.context = "Elysia she is my lover girl.\nshe has pink hair with blue eye her sound so cute~~";
+        noteB.createDate = "7/17/2025 4:27PM\n";
+
+        noteB.getSummary();
+
+        userA.userName = "NEKO";
+        userA.passKey = "3516";
+
+        userB.userName = "Hacker";
+        userB.passKey = "I_AM_HACKER";
+
+        userA.login();
+        userB.login();
+    }
 }
