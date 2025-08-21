@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddNoteActivity">
+
+    <TextView
+        android:id="@+id/background"
+        android:layout_width="432dp"
+        android:layout_height="55dp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="-3dp" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Back"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="236dp"
+        android:text="Save"
+        app:layout_constraintStart_toEndOf="@+id/backButton"
+        app:layout_constraintTop_toTopOf="@+id/backButton"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/item2"
+        android:layout_width="328dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:backgroundTint="@android:color/transparent"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Item"
+        android:inputType="text"
+        android:singleLine="true"
+        android:textSize="8pt"
+        app:layout_constraintStart_toEndOf="@+id/checkBox2"
+        app:layout_constraintTop_toTopOf="@+id/checkBox2" />
+
+    <EditText
+        android:id="@+id/item1"
+        android:layout_width="328dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:backgroundTint="@android:color/transparent"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Item"
+        android:inputType="text"
+        android:singleLine="true"
+        android:textSize="8pt"
+        app:layout_constraintStart_toEndOf="@+id/checkBox1"
+        app:layout_constraintTop_toTopOf="@+id/checkBox1" />
+
+    <EditText
+        android:id="@+id/titleInput"
+        android:layout_width="378dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="72dp"
+        android:backgroundTint="@android:color/transparent"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Title"
+        android:inputType="text"
+        android:singleLine="true"
+        android:textSize="12pt"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/contentInput"
+        android:layout_width="378dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/transparent"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Content"
+        android:inputType="textMultiLine"
+        android:singleLine="false"
+        android:textSize="8pt"
+        app:layout_constraintStart_toStartOf="@+id/titleInput"
+        app:layout_constraintTop_toBottomOf="@+id/titleInput" />
+
+    <EditText
+        android:id="@+id/item0"
+        android:layout_width="328dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@android:color/transparent"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Item"
+        android:inputType="text"
+        android:singleLine="true"
+        android:textSize="8pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/checkBox0"
+        app:layout_constraintTop_toTopOf="@+id/checkBox0" />
+
+    <CheckBox
+        android:id="@+id/checkBox0"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contentInput" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="7dp"
+        app:layout_constraintStart_toStartOf="@+id/checkBox1"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox1" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="7dp"
+        app:layout_constraintStart_toStartOf="@+id/checkBox0"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox0" />
+
+    <TextView
+        android:id="@+id/textSaved"
+        android:layout_width="378dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:text=""
+        android:textColor="#FF0000"
+        android:textSize="8pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
