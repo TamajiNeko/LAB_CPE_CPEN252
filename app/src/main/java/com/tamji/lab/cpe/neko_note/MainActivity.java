@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +23,11 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        ImageView logo;
         Button addButton = findViewById(R.id.button);
+
+        logo = findViewById(R.id.logo);
+        logo.setImageResource(R.drawable.yunli);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

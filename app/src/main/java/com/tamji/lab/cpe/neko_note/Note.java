@@ -8,6 +8,8 @@ public abstract class Note {
     String author;
     String createDate;
 
+    public Note(String title) {}
+
     abstract String getSummary();
     /*{
         System.out.println("# " + title + "\n" + content + "\nCreated on " + createDate);

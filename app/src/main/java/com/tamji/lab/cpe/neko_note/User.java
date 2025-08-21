@@ -2,18 +2,14 @@ package com.tamji.lab.cpe.neko_note;
 
 public class User {
     private String userName;
-    private String password;
+    private int pin;
 
-    public String getUserName(){
+    public String getUserInformation(){
         return userName;
     }
 
-    public String login(String user2Login, String Pass2Login){
-        if(user2Login.toLowerCase() == "admin" & Pass2Login == "1234"){
-            return "Login Successful";
-        }
-        return null;
+    public void addUser(String newUser,int newPin){
+        this.userName = newUser;
+        this.pin = newPin;
     }
-
-    void checkUserName(){}
 }
