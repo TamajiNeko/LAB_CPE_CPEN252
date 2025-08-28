@@ -1,10 +1,13 @@
 package com.tamji.lab.cpe.neko_note;
 
+import static java.lang.Thread.sleep;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,16 +26,41 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         ImageView logo;
-        Button addButton = findViewById(R.id.button);
+        Button addButton = findViewById(R.id.addButton);
+        Button noteButton = findViewById(R.id.noteButton);
+        ProgressBar progressBar = findViewById(R.id.progressBar2);
+        progressBar.setVisibility(View.GONE);
 
         logo = findViewById(R.id.logo);
         logo.setImageResource(R.drawable.yunli);
+
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent newActivity = new Intent(getApplicationContext(), AddNoteActivity.class);
                 startActivity(newActivity);
+            }
+        });
+
+        noteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
+
+                new Thread(() -> {
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    runOnUiThread(() -> {
+                        progressBar.setVisibility(View.GONE);
+                        Intent newActivity = new Intent(getApplicationContext(), NoteActivity.class);
+                        startActivity(newActivity);
+                    });
+                }).start();
             }
         });
 
