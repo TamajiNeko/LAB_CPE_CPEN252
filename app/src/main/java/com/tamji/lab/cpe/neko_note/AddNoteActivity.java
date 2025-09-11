@@ -1,6 +1,7 @@
 package com.tamji.lab.cpe.neko_note;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +18,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.security.AccessController;
 import java.util.Date;
+import java.util.concurrent.Executors;
 
 public class AddNoteActivity extends AppCompatActivity {
 
@@ -58,7 +61,7 @@ public class AddNoteActivity extends AppCompatActivity {
                 String content = contentInput.getText().toString();
 
                 String date = new Date().toString();
-                TextNote note = new TextNote();
+                TextNote note = new TextNote(null, null, null);
                 CheckList list = new CheckList("Note List");
 
                 User fakeUser = new User();
@@ -84,7 +87,12 @@ public class AddNoteActivity extends AppCompatActivity {
                         }
                     }
                 }
-                textSaved.setText(note.getSummary()+"\n"+list.getSummary());
+                NoteEntity entity = NoteMapper.toEntity(note);
+
+                Context context = v.getContext();
+                Executors.newSingleThreadExecutor().execute(() -> {
+                    AppDatabase.getInstance(context).noteDao().insert(entity);
+                });
             }
         });
     }
