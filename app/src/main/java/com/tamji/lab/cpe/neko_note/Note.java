@@ -3,13 +3,12 @@ package com.tamji.lab.cpe.neko_note;
 import java.util.Date;
 
 public abstract class Note {
-    public Date createdDate;
-    int noteId;
-    String title;
-    String author;
-    String createDate;
+    public String createdDate;
+    public String title;
+    public String author;
 
-    public Note(String title) {}
+    public Note(String title, String createDate) {}
+
 
     abstract String getSummary();
     /*{

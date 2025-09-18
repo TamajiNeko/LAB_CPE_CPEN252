@@ -20,7 +20,6 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public static AppDatabase getInstance(Context context) {
         if (INSTANCE == null) {
-            Log.i("AppDatabase","AAAAAA");
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             AppDatabase.class,
                             "note_database"

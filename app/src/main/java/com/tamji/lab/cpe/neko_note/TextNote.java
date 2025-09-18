@@ -4,25 +4,34 @@ import java.util.Date;
 
 public class TextNote extends Note{
     private String content;
+    private String body;
 
-    public TextNote(String title, Date createdDate, String content) {
-        super(null);
+    public TextNote(String title, String createdDate, String content, String author) {
+        super(title, String.valueOf(createdDate));
+        this.title = title;
+        this.createdDate = createdDate;
+        this.content = content;
+        this.author = author;
     }
 
-
-    public String setContent(String newTitle, String newContent, String newDate, String author){
+    public void setContent(String newTitle, String newContent, String newDate, String author){
         this.title = newTitle;
         this.content = newContent;
-        this.createDate = newDate;
+        this.createdDate = newDate;
         this.author = author;
-        return newContent;
     }
+
+    public String getTitle(){ return this.title; }
+    public String getTextContent(){ return this.body; }
 
     public String getContent(){
         return content;
     }
 
-    String getSummary(){
-        return "[Title] " + title + "\n[Create on] " + createDate + "\n" + "[Content] " + content + "\n[Author] " + author;
+    public String getSummary(){
+        if (content.isEmpty()) {
+            return title + " - By " + author + " (" + createdDate + ")\nNo content (´。＿。｀)\n\n";
+        }
+        return title + " - By " + author + " (" + createdDate + ")\n" + content + "\n\n";
     }
 }

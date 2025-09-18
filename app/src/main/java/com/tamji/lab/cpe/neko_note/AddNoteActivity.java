@@ -2,15 +2,14 @@ package com.tamji.lab.cpe.neko_note;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +17,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import java.security.AccessController;
 import java.util.Date;
 import java.util.concurrent.Executors;
 
@@ -44,7 +42,7 @@ public class AddNoteActivity extends AppCompatActivity {
 
         EditText titleInput = findViewById(R.id.titleInput);
         EditText contentInput = findViewById(R.id.contentInput);
-        TextView textSaved = findViewById(R.id.textSaved);
+/*        TextView textSaved = findViewById(R.id.textSaved);*/
 
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,17 +57,23 @@ public class AddNoteActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String title = titleInput.getText().toString();
                 String content = contentInput.getText().toString();
+                String date = DateCreator.format(new Date());
 
-                String date = new Date().toString();
-                TextNote note = new TextNote(null, null, null);
-                CheckList list = new CheckList("Note List");
+                TextNote note = new TextNote(null, null, null, null);
+/*              CheckList list = new CheckList("Note List");*/
 
                 User fakeUser = new User();
-                fakeUser.addUser("Zandar One Kuwabara", 33550337);
+                fakeUser.addUser("Tamji Neko", 33550337);
                 String author = fakeUser.getUserInformation();
+
+                if (title.isEmpty()) {
+                    title = "Untitled Note";
+                }
+
                 note.setContent(title, content, date, author);
 
-                String packageName = getPackageName();
+                //Check List (Unused)
+/*              String packageName = getPackageName();
                 for (int i = 0; i < 3; i++) {
                     String item = "item"+i;
                     String checkBox = "checkBox"+i;
@@ -86,13 +90,16 @@ public class AddNoteActivity extends AppCompatActivity {
                             list.addItems(checkBoxContent.getText().toString(), checked);
                         }
                     }
-                }
+                }*/
+
                 NoteEntity entity = NoteMapper.toEntity(note);
 
                 Context context = v.getContext();
                 Executors.newSingleThreadExecutor().execute(() -> {
                     AppDatabase.getInstance(context).noteDao().insert(entity);
                 });
+                Toast.makeText(getApplicationContext(), "Note Saved! ヾ(≧▽≦*)o", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
     }

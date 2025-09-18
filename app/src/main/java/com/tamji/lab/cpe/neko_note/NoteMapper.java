@@ -9,7 +9,7 @@ public class NoteMapper {
     // OOP -> Entity
     public static NoteEntity toEntity(TextNote note) {
         if (note instanceof TextNote) {
-            return new NoteEntity(note.title, "text", null, ((TextNote) note).getContent(), note.createdDate);
+            return new NoteEntity(note.title, "text", null, ((TextNote) note).getContent(), note.createdDate, note.author);
 /*        } else if (note instanceof CheckList) {
             String jsonItems = gson.toJson(((CheckList) note).getClass());
             return new NoteEntity(note.title, "checklist", jsonItems, null, note.createdDate);*/
@@ -20,7 +20,7 @@ public class NoteMapper {
     // Entity -> OOP
     public static Note fromEntity(NoteEntity entity) {
         if (entity.type.equals("text")) {
-            return new TextNote(entity.title, entity.createdDate, entity.content) {
+            return new TextNote(entity.title, entity.createdDate, entity.content, entity.author) {
             };
 /*        } else if (entity.type.equals("checklist")) {
             List<String> items = gson.fromJson(entity.checklistItemsJson, new TypeToken<List<String>>(){}.getType());
